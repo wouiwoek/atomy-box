@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atomy Gift Box — собери свой подарок</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- шапка -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#home" class="logo">ATOMY <span>GIFT BOX</span></a>
+
+            <nav class="navigation">
+                <a href="#home">главная</a>
+                <a href="#builder">конструктор</a>
+                <a href="#footer">контакты</a>
+            </nav>
+
+            <a href="#builder" class="header-button">собрать подарок</a>
+        </div>
+    </header>
+
+
+    <!-- главный экран -->
+    <main>
+
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <p class="hero-label">ПОДАРКИ С ЗАБОТОЙ</p>
+
+                <h1>
+                    подарок,<br>
+                    созданный <span>тобой</span>
+                </h1>
+
+                <p class="hero-description">
+                    Собери уникальный подарочный набор из любимой продукции Atomy.
+                    Выбирай товары, сочетай их и создавай подарок с особенным смыслом.
+                </p>
+
+                <a href="#builder" class="primary-button">
+                    создать свой подарок
+                </a>
+            </div>
+
+            <div class="hero-decoration">
+                <img src="images/венок.png"
+                     alt="Подарочная коробка">
+            </div>
+        </section>
+
+
+        <!-- конструктор -->
+        <section class="builder" id="builder">
+
+            <div class="section-heading">
+                <p class="section-label">ТВОЙ ИДЕАЛЬНЫЙ НАБОР</p>
+                <h2>собери свой подарок</h2>
+                <p>
+                    Выбирай понравившиеся товары, а мы красиво соберём их в одну коробку.
+                </p>
+            </div>
+
+
+            <div class="builder-container">
+
+                <!-- каталог -->
+                <div class="catalog">
+
+                    <div class="catalog-heading">
+                        <div>
+                            <h3>каталог продукции</h3>
+                            <p>выбирай то, что хочется подарить</p>
+                        </div>
+
+                        <span id="productCount">0 товаров</span>
+                    </div>
+
+
+                    <!-- категории -->
+                    <div class="categories" id="categories">
+                        <button class="category active" data-category="all">
+                            всё
+                        </button>
+
+                        <button class="category" data-category="face">
+                            уход за лицом
+                        </button>
+
+                        <button class="category" data-category="body">
+                            уход за руками
+                        </button>
+
+                        <button class="category" data-category="hygiene">
+                            гигиена
+                        </button>
+
+                        <button class="category" data-category="makeup">
+                            косметика
+                        </button>
+
+                    </div>
+
+
+                    <!-- товары -->
+                    <div class="products" id="products">
+                        <!-- карточки добавляются через JavaScript -->
+                    </div>
+
+                </div>
+
+
+                <!-- предпросмотр подарка --><div class="preview">
+
+                    <div class="preview-heading">
+                        <h3>твой подарок</h3>
+                        <p>так будет выглядеть готовый набор</p>
+                    </div>
+
+
+                    <!-- коробка -->
+                    <div class="box-area">
+
+                        <img
+                            src="images/коробка.png"
+                            alt="Открытая подарочная коробка"
+                            class="box-background"
+                        >
+
+                        <!-- товары внутри коробки -->
+                        <div class="box-products" id="boxProducts">
+                        </div>
+
+                        <div class="empty-box" id="emptyBox">
+                            здесь появятся<br>выбранные товары
+                        </div>
+
+                    </div>
+
+
+                    <!-- выбранные товары -->
+                    <div class="selected-section">
+
+                        <div class="selected-header">
+                            <h4>состав подарка</h4>
+                            <button id="clearButton" class="clear-button">
+                                очистить
+                            </button>
+                        </div>
+
+                        <div class="selected-products" id="selectedProducts">
+                            <p class="empty-message">
+                                пока ничего не добавлено
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- стоимость -->
+                    <div class="price-block">
+
+                        <div class="price-row">
+                            <span>товары</span>
+                            <span id="productsPrice">0 ₽</span>
+                        </div>
+
+                        <div class="price-row">
+                            <span>подарочная упаковка</span>
+                            <span id="packagingPrice">100 ₽</span>
+                        </div>
+
+                        <div class="price-total">
+                            <span>итого</span>
+                            <span id="totalPrice">100 ₽</span>
+                        </div>
+
+                    </div>
+
+
+                    <button class="order-button" id="orderButton">
+                        оформить подарок
+                    </button>
+
+                    <p class="order-note">
+                        перед оформлением проверь состав своего набора
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- информация о подарках -->
+        <section class="gift-info">
+            <div class="gift-info-content">
+                <p class="section-label">НЕ ПРОСТО ПОДАРОК</p>
+
+                <h2>внимание в каждой детали</h2>
+
+                <p>
+                    Подбирай продукцию под интересы и желания близких.
+                    Создавай наборы для праздников, особенных событий
+                    или просто без повода.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- подвал -->
+    <footer class="footer" id="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+                <a href="#home" class="logo">
+                    ATOMY <span>GIFT BOX</span>
+                </a>
+
+                <p>
+                    подарки, которые хочется дарить
+                </p>
+            </div>
+
+
+            <div class="telegram-block">
+
+                <div class="telegram-icon">
+                    <img src="images/телеграмм.png" alt="Telegram">
+                </div>
+
+                <div class="telegram-text">
+                    <h4>больше об Atomy</h4>
+                    <p>
+                        новинки, акции и полезная информация в моём канале
+                    </p>
+                </div>
+
+                <a
+                    href="https://t.me/polvyatomy"target="_blank"
+                    rel="noopener noreferrer"
+                    class="telegram-button"
+                >
+                    перейти в канал
+                </a>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>© 2026 ATOMY GIFT BOX</p>
+                <a href="#home">вернуться наверх ↑</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- окно выбора кремов soft poppy -->
+    <div class="modal" id="softPoppyModal">
+
+        <div class="modal-content">
+
+            <button class="modal-close" id="closeModal">&times;</button>
+
+            <p class="section-label">Крема для рук</p>
+
+            <h3>выбери свой крем</h3>
+
+            <p class="modal-description">
+                выбери понравившийся аромат или добавь сразу весь набор
+            </p>
+
+            <div class="soft-poppy-options" id="softPoppyOptions">
+                <!-- варианты кремов добавляются через JavaScript -->
+            </div>
+
+            <button class="primary-button modal-add" id="addSoftPoppy">
+                добавить выбранные
+            </button>
+
+            <button class="set-button" id="addAllSoftPoppy">
+                добавить все 4 крема
+            </button>
+
+        </div>
+
+    </div>
+
+<!-- модальное окно бальзамов для рук -->
+<div class="modal" id="handBalmModal">
+
+    <div class="modal-content">
+
+        <button class="modal-close" id="closeHandBalmModal">&times;</button>
+
+        <p class="section-label">Бальзамы для рук</p>
+
+        <h3>выбери свой бальзам</h3>
+
+        <p class="modal-description">
+            выбери понравившийся вариант или добавь сразу все три
+        </p>
+
+        <div class="soft-poppy-options" id="handBalmOptions">
+            <!-- варианты бальзамов добавляются через JavaScript -->
+        </div>
+
+        <button class="primary-button modal-add" id="addHandBalm">
+            добавить выбранные
+        </button>
+
+        <button class="set-button" id="addAllHandBalm">
+            добавить все 3 бальзама
+        </button>
+
+    </div>
+
+</div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
